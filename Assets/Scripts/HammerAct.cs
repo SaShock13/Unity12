@@ -4,11 +4,13 @@ using UnityEngine;
 
 public class HammerAct : MonoBehaviour
 {
+    [Header("Объект Петли для отключения пружины")]
     [SerializeField] HingeJoint hinge;
+
     private void OnTriggerEnter(Collider other)
     {
 
-        if (other.gameObject.tag=="Player")
+        if (other.CompareTag("Player"))
         {
             hinge.useSpring = false; 
         }

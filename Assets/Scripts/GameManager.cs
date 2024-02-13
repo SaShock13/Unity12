@@ -5,8 +5,13 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-   [SerializeField] Canvas gameOverCanvas;
+    [Header("Канвас Конец игры")]
+    [SerializeField] Canvas gameOverCanvas;
+
+    [Header("Основной канвас")]
     [SerializeField] GameObject mainCanvas;
+
+    [Header("Объект мяча")]
     [SerializeField] GameObject ball;
 
     public void GameOver()

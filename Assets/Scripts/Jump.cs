@@ -11,6 +11,9 @@ public class Jump : MonoBehaviour
         sound = GetComponent<AudioSource>();
     }
 
+    /// <summary>
+    /// Воспроизводит звук прыжка
+    /// </summary>
     public void JumpSound()
     {
         sound.Play();

@@ -5,6 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class RestartScript : MonoBehaviour
 {
+    /// <summary>
+    /// Перезапускает сцену
+    /// </summary>
     public void Restart()
     {
         SceneManager.LoadScene(0);

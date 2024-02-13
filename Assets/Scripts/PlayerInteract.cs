@@ -5,10 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class PlayerInteract : MonoBehaviour
 {   
-
     private void OnCollisionEnter(Collision collision)
     {       
-        if (collision.gameObject.tag=="Obstacle")
+        if (collision.collider.CompareTag("Obstacle"))
         {
             RestartLevel();
         }        
@@ -16,27 +15,36 @@ public class PlayerInteract : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Finish")
+        if (other.CompareTag("Finish"))
         {
             Finish();
         }
-        if (other.gameObject.tag == "Death")
+        if (other.CompareTag("Death"))
         {
             GameOver();
         }
     }
 
+    /// <summary>
+    /// Запускает сцену GameOver
+    /// </summary>
     void GameOver()
     {
         SceneManager.LoadScene(7);
     }
 
+    /// <summary>
+    /// Перзапускает уровеь
+    /// </summary>
     void RestartLevel()
     {
         Debug.Log("Restart");
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);        
     }
 
+    /// <summary>
+    /// Переход на следующий уровень
+    /// </summary>
     void Finish()
     {
         int nextIndex = SceneManager.GetActiveScene().buildIndex + 1;

@@ -4,7 +4,10 @@ using UnityEngine;
 
 public class CameraMove : MonoBehaviour
 {
+    [Header("Трансформ игрока для следования камерой")]
     [SerializeField] Transform playerTransform;
+
+    [Header("Смещение камеры относительно игрока")]
     [SerializeField] Vector3 offset;
 
     private void Start()
@@ -15,6 +18,14 @@ public class CameraMove : MonoBehaviour
 
     private void Update()
     {
-        transform.position = playerTransform.position + offset;       
+        MoveCamera();
+    }
+
+    /// <summary>
+    /// Меняет положение камеры со смещением от игрока
+    /// </summary>
+    void MoveCamera()
+    {
+        transform.position = playerTransform.position + offset;
     }
 }

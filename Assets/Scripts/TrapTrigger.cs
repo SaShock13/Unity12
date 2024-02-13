@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class TrapTrigger : MonoBehaviour
 {
+    [Header("Объект ловушки для активации")]
     [SerializeField] Rigidbody trap;
+    
     private void OnTriggerEnter(Collider other)
     {
-
-        if (other.gameObject.tag == "Player")
+        if (other.CompareTag("Player"))
         {
             trap.isKinematic = false;
         }

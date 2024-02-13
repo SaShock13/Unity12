@@ -6,9 +6,12 @@ using UnityEngine;
 
 public class ButtonSetActive : MonoBehaviour
 {
+    [Header("Объект для выключения")]
     [SerializeField] GameObject obj;
-    bool isInTrigger = false;
+    [Header("Объект UI Text для отображения подсаказки нажатия клавиши")]
     [SerializeField] TMP_Text text;
+
+    bool isInTrigger = false;
 
     private void Start()
     {
@@ -16,7 +19,7 @@ public class ButtonSetActive : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Player")
+        if (other.CompareTag("Player"))
         {
             isInTrigger = true;
             text.text = "Нажмите E для активации моста";
@@ -27,7 +30,7 @@ public class ButtonSetActive : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.tag == "Player")
+        if (other.CompareTag("Player"))
         {            
             isInTrigger = false;
             StopCoroutine(nameof(TextBlink));
@@ -37,12 +40,24 @@ public class ButtonSetActive : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E)&isInTrigger)
+        KeyListener();
+    }
+
+    /// <summary>
+    /// Отслеживает нажатие клавиши E
+    /// </summary>
+    void KeyListener()
+    {
+        if (Input.GetKeyDown(KeyCode.E) & isInTrigger)
         {
-            obj.SetActive(!obj.activeSelf); 
+            obj.SetActive(!obj.activeSelf);
         }
     }
 
+    /// <summary>
+    /// Корутина мигания текста посказки
+    /// </summary>
+    /// <returns></returns>
     IEnumerator TextBlink()
     {
         while (true)

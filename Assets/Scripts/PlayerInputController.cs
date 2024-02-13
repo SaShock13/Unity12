@@ -55,29 +55,44 @@ public class PlayerInputController : MonoBehaviour
 
     private void Update()
     {
-        var horizontal = Input.GetAxis("Horizontal")*-1;
-        var vertical = Input.GetAxis("Vertical")*-1;
-        vector3 = new Vector3(horizontal,0,vertical);
-        if (transform.position.y<=0.55)
+        KeyListen();
+    }
+
+    private void FixedUpdate()
+    {
+        MovePlayer();
+    }
+    
+    /// <summary>
+    /// Отслеживает нажатия клавиш , управления игроком
+    /// </summary>
+    void KeyListen()
+    {
+        var horizontal = Input.GetAxis("Horizontal") * -1;
+        var vertical = Input.GetAxis("Vertical") * -1;
+        vector3 = new Vector3(horizontal, 0, vertical);
+
+        if (transform.position.y <= 0.55)
         {
             isJump = false;
         }
-
-        if (Input.GetButtonDown("Jump"))        
+        if (Input.GetButtonDown("Jump"))
         {
-            if (isJump==false)
+            if (isJump == false)
             {
                 Debug.Log("Прыжок");
                 playerMove.Jump();
                 isJump = true;
             }
-
         }
     }
 
-    private void FixedUpdate()
+    /// <summary>
+    /// Вызывает метод движения игрока, принимает вектор движения
+    /// </summary>
+    void MovePlayer()
     {
-        playerMove.Move(vector3);        
+        playerMove.Move(vector3);
     }
 
     

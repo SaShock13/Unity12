@@ -6,6 +6,7 @@ using UnityEngine;
 public class PlayerMoveScript : MonoBehaviour
 {
     Rigidbody rb;
+    AudioSource jumpSound;
 
     [Header("Скорость передвижения игрока")]
     [SerializeField] float speed;
@@ -16,6 +17,7 @@ public class PlayerMoveScript : MonoBehaviour
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
+        jumpSound = GetComponent<AudioSource>();
     }
 
     /// <summary>
@@ -33,5 +35,6 @@ public class PlayerMoveScript : MonoBehaviour
     public void Jump()
     {
         rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+        jumpSound.Play();
     }
 }

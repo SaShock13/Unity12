@@ -14,6 +14,8 @@ public class GameManager : MonoBehaviour
     [Header("־בתוךע לÿקא")]
     [SerializeField] GameObject ball;
 
+    
+
     public void GameOver()
     {
         SceneManager.LoadScene(0);
@@ -21,4 +23,6 @@ public class GameManager : MonoBehaviour
         mainCanvas.SetActive(false);
         gameOverCanvas.enabled = true;
     }
+
+    
 }

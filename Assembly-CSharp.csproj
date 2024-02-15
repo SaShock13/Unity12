@@ -64,13 +64,16 @@
     <Compile Include="Assets\Scripts\PlayerMoveScript.cs" />
     <Compile Include="Assets\Scripts\RestartScript.cs" />
     <Compile Include="Assets\Scripts\TrapTrigger.cs" />
+    <Compile Include="Assets\Scripts\Bonus.cs" />
     <Compile Include="Assets\Scripts\PlayerInputController.cs" />
     <Compile Include="Assets\Scripts\HammerAct.cs" />
     <Compile Include="Assets\Scripts\ButtonSetActive.cs" />
+    <Compile Include="Assets\Scripts\PointsCounter.cs" />
     <Compile Include="Assets\Scripts\PitTrapTrigger1.cs" />
     <Compile Include="Assets\Scripts\GameManager.cs" />
     <Compile Include="Assets\Scripts\Jump.cs" />
     <Compile Include="Assets\Scripts\PlayerInteract.cs" />
+    <Compile Include="Assets\Scripts\ShowPoints.cs" />
     <Compile Include="Assets\Scripts\PauseScript.cs" />
     <Compile Include="Assets\Scripts\CameraMove.cs" />
     <Compile Include="Assets\Scripts\MovingPlatform.cs" />

@@ -1,15 +1,33 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.SceneManagement;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class PlayerInteract : MonoBehaviour
-{   
+{
+    ParticleSystem particleSys;
+    MeshRenderer meshRenderer;
+
+    PointsCounter pointsCounter;
+
+
+    private void Awake()
+    {
+        particleSys= GetComponentInChildren<ParticleSystem>();        
+        meshRenderer = GetComponent<MeshRenderer>();
+        pointsCounter = GetComponent<PointsCounter>();
+        
+    }
+
     private void OnCollisionEnter(Collision collision)
     {       
         if (collision.collider.CompareTag("Obstacle"))
         {
-            RestartLevel();
+            
+            particleSys.Play();
+            meshRenderer.enabled = false;
+            StartCoroutine(nameof(Restart));
         }        
     }
 
@@ -23,6 +41,11 @@ public class PlayerInteract : MonoBehaviour
         {
             GameOver();
         }
+        if (other.CompareTag("Bonus"))
+        {
+            TakeBonus();
+        }
+
     }
 
     /// <summary>
@@ -56,5 +79,16 @@ public class PlayerInteract : MonoBehaviour
         {
             SceneManager.LoadScene(8);
         }
+    }
+
+    void TakeBonus()
+    {        
+        pointsCounter.IncreasePoints();
+    }
+
+    IEnumerator Restart()
+    {
+        yield return new WaitForSeconds(1);
+        RestartLevel();
     }
 }

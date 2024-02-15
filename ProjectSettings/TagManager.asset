@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Obstacle
   - Death
+  - Bonus
   layers:
   - Default
   - TransparentFX

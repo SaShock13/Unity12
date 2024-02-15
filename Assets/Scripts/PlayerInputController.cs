@@ -71,6 +71,7 @@ public class PlayerInputController : MonoBehaviour
         var horizontal = Input.GetAxis("Horizontal") * -1;
         var vertical = Input.GetAxis("Vertical") * -1;
         vector3 = new Vector3(horizontal, 0, vertical);
+       
 
         if (transform.position.y <= 0.55)
         {
@@ -88,7 +89,7 @@ public class PlayerInputController : MonoBehaviour
     }
 
     /// <summary>
-    /// Вызывает метод движения игрока, принимает вектор движения
+    /// Вызывает метод движения игрока
     /// </summary>
     void MovePlayer()
     {

@@ -62,7 +62,19 @@ public class PlayerInputController : MonoBehaviour
     {
         MovePlayer();
     }
-    
+
+    private void OnCollisionEnter(Collision collision)
+    {
+
+        if (collision.collider!=null)
+        {
+            if (collision.collider.CompareTag("Floor"))
+            {
+                isJump = false;
+            } 
+        }
+    }
+
     /// <summary>
     /// ќтслеживает нажати€ клавиш , управлени€ игроком
     /// </summary>
@@ -71,9 +83,9 @@ public class PlayerInputController : MonoBehaviour
         var horizontal = Input.GetAxis("Horizontal") * -1;
         var vertical = Input.GetAxis("Vertical") * -1;
         vector3 = new Vector3(horizontal, 0, vertical);
-       
 
-        if (transform.position.y <= 0.55)
+
+        if (transform.position.y <= 0.6 & transform.position.y >= 0.45)
         {
             isJump = false;
         }

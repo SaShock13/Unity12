@@ -6,7 +6,7 @@ public class Bonus : MonoBehaviour
 {    
     [SerializeField] ParticleSystem particleSys2;    
     MeshRenderer mesh;
-    Collider collider;
+    Collider coll;
 
     
     ParticleSystem particleSys;
@@ -14,7 +14,7 @@ public class Bonus : MonoBehaviour
 
     private void Awake()
     {
-        collider = GetComponent<Collider>();
+        coll = GetComponent<Collider>();
         mesh = GetComponent<MeshRenderer>();
         particleSys = GetComponentInChildren<ParticleSystem>();        
         bonusSound = GetComponent<AudioSource>(); 
@@ -31,7 +31,7 @@ public class Bonus : MonoBehaviour
                 bonusSound.Play();
             }
             mesh.enabled = false;
-            collider.enabled = false;
+            coll.enabled = false;
         }
     }
 }

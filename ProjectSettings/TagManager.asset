@@ -7,6 +7,7 @@ TagManager:
   - Obstacle
   - Death
   - Bonus
+  - Floor
   layers:
   - Default
   - TransparentFX

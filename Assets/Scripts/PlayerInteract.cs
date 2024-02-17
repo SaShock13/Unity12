@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.SceneManagement;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -39,7 +38,7 @@ public class PlayerInteract : MonoBehaviour
         }
         if (other.CompareTag("Death"))
         {
-            GameOver();
+            StartCoroutine(nameof (Restart));
         }
         if (other.CompareTag("Bonus"))
         {
@@ -71,7 +70,7 @@ public class PlayerInteract : MonoBehaviour
     void Finish()
     {
         int nextIndex = SceneManager.GetActiveScene().buildIndex + 1;
-        if (nextIndex<=6)
+        if (nextIndex<=4)
         {
             SceneManager.LoadScene(nextIndex);
         }

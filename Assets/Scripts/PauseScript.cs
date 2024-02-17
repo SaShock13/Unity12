@@ -36,6 +36,14 @@ public class PauseScript : MonoBehaviour
     }
 
     /// <summary>
+    /// Выход из игры
+    /// </summary>
+    public void ExitGame()
+    {
+        Application.Quit();
+    }
+
+    /// <summary>
     /// Возращает в главное меню
     /// </summary>
     public void BackToMenyButtonClick()
